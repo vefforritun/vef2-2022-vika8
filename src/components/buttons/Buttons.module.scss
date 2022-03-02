@@ -1,0 +1,9 @@
+.buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  &__element {
+    font-size: 2rem;
+  }
+}

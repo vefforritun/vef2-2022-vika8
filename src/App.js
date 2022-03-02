@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import { Button } from './components/button/Button';
 
 function App() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    console.log('loaded');
+  }, [])
+
+  useEffect(() => {
+    console.log('hæ')
+  }, [count])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Button
+          size="large"
+          onClick={(e) => { setCount(count + 1) }}
         >
-          Learn React
-        </a>
-      </header>
+          Takkinn
+        </Button>
+        <p>ýtt á takka: {count} sinnum</p>
+        {count === 1 && (
+          <Button>jeij</Button>
+        )}
     </div>
   );
 }
